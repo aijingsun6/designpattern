@@ -2,7 +2,7 @@ package com.alking.java.designpattern.command.eg;
 
 import com.alking.java.designpattern.command.Command;
 
-public class HelpCommand implements Command {
+public class HelpCommand<T> implements Command<T> {
 
     private HelpHandler handler;
 
@@ -15,7 +15,6 @@ public class HelpCommand implements Command {
     }
 
     public HelpCommand() {
-        this.handler = new HelpHandler();
     }
 
     @Override

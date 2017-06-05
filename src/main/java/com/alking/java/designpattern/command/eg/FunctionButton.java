@@ -2,11 +2,11 @@ package com.alking.java.designpattern.command.eg;
 
 import com.alking.java.designpattern.command.Command;
 
-public class FunctionButton {
+public class FunctionButton<T> {
 
     private String name;
 
-    private Command command;
+    private Command<T> command;
 
     public FunctionButton(String name) {
         this.name = name;
@@ -16,7 +16,7 @@ public class FunctionButton {
         return this.name;
     }
 
-    public void setCommand(Command command) {
+    public void setCommand(Command<T> command) {
         this.command = command;
     }
 

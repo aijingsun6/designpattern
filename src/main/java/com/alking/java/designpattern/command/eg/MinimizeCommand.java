@@ -2,24 +2,19 @@ package com.alking.java.designpattern.command.eg;
 
 import com.alking.java.designpattern.command.Command;
 
-/**
- * Created by sunaijing on 2017/6/5.
- */
-public class MinimizeCommand implements Command {
+public class MinimizeCommand<T> implements Command<T> {
 
-    private MinimizeHandler handler;
+    private MinimizeHandler<T> handler;
 
-    public MinimizeHandler getHandler() {
+    public MinimizeHandler<T> getHandler() {
         return handler;
     }
-
-    public void setHandler(MinimizeHandler handler) {
+    public void setHandler(MinimizeHandler<T> handler) {
         this.handler = handler;
     }
 
     public MinimizeCommand() {
 
-        this.handler = new MinimizeHandler();
     }
 
     @Override

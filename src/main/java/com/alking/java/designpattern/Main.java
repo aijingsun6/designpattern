@@ -1,9 +1,7 @@
 package com.alking.java.designpattern;
 
-import com.alking.java.designpattern.command.eg.FBSettingWindow;
-import com.alking.java.designpattern.command.eg.FunctionButton;
-import com.alking.java.designpattern.command.eg.HelpCommand;
-import com.alking.java.designpattern.command.eg.MinimizeCommand;
+import com.alking.java.designpattern.command.IntStateCommand;
+import com.alking.java.designpattern.command.eg.*;
 
 public class Main {
 
@@ -28,12 +26,20 @@ public class Main {
 
     private static void command(){
         System.out.println("begin command...");
-        FBSettingWindow win = new FBSettingWindow("window");
-        FunctionButton fb1 =  new FunctionButton("fb1");
-        fb1.setCommand(new HelpCommand());
+        FBSettingWindow<String> win = new FBSettingWindow<>("window");
+        FunctionButton<String> fb1 =  new FunctionButton<>("fb1");
 
-        FunctionButton fb2 =  new FunctionButton("fb2");
-        fb2.setCommand(new MinimizeCommand());
+        HelpCommand<String> helpCommand = new HelpCommand<>();
+        helpCommand.setHandler(new HelpHandler<String>("help handler"));
+
+        fb1.setCommand(helpCommand);
+
+
+
+        FunctionButton<String> fb2 =  new FunctionButton<>("fb2");
+        MinimizeCommand<String> minimizeCommand = new MinimizeCommand<>();
+        minimizeCommand.setHandler(new MinimizeHandler<String>("min handler"));
+        fb2.setCommand(minimizeCommand);
 
         win.addFunctionButton(fb1);
         win.addFunctionButton(fb2);
@@ -41,6 +47,16 @@ public class Main {
         win.display();
         fb1.onClick();
         fb2.onClick();
+
+        Calc calc = new Calc();
+        calc.addCmd(new IntStateCommand(1));
+        calc.addCmd(new IntStateCommand(2));
+        calc.addCmd(new IntStateCommand(3));
+
+        calc.displayResult();
+        calc.undo();
+        calc.displayResult();
+
 
         System.out.println("end command...");
     }

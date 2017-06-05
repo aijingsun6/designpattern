@@ -1,6 +1,6 @@
 package com.alking.java.designpattern.command;
 
-public class ConcreteCommand implements Command {
+public class ConcreteCommand<T> implements Command<T> {
 
     private Receiver receiver;
 
