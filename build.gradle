@@ -5,7 +5,7 @@ task runApp(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     main = "com.alking.java.designpattern.Main"
     // arguments to pass to the application
-    args 'command'
+    args 'command','state'
 }
 
 repositories {

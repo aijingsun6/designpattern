@@ -2,6 +2,7 @@ package com.alking.java.designpattern;
 
 import com.alking.java.designpattern.command.IntStateCommand;
 import com.alking.java.designpattern.command.eg.*;
+import com.alking.java.designpattern.state.Account;
 
 public class Main {
 
@@ -18,6 +19,9 @@ public class Main {
         switch (s){
             case "command" :
                 command();
+                break;
+            case "state":
+                state();
                 break;
             default:
                 break;
@@ -59,5 +63,18 @@ public class Main {
 
 
         System.out.println("end command...");
+    }
+
+    private static void state(){
+
+        Account acc = new Account("duan",0.0);
+        acc.deposit(1000);
+        acc.withdraw(2000);
+        acc.deposit(3000);
+        acc.withdraw(4000);
+        acc.withdraw(1000);
+        acc.computeInterest();
+
+
     }
 }
