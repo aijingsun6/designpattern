@@ -1,0 +1,13 @@
+apply plugin: 'java'
+version = '1.0.0'
+
+task runApp(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = "com.alking.java.designpattern.Main"
+    // arguments to pass to the application
+    args 'appArg1'
+}
+
+repositories {
+    mavenCentral()
+}
