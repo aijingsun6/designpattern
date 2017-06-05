@@ -5,7 +5,7 @@ import com.alking.java.designpattern.command.Command;
 /**
  * Created by sunaijing on 2017/6/5.
  */
-public class MinimizeCommand extends Command {
+public class MinimizeCommand implements Command {
 
     private MinimizeHandler handler;
 
@@ -19,13 +19,15 @@ public class MinimizeCommand extends Command {
 
     public MinimizeCommand() {
 
+        this.handler = new MinimizeHandler();
     }
-
-
-
 
     @Override
     public void execute() {
+
+        if(this.handler != null){
+            this.handler.handle();
+        }
 
     }
 }

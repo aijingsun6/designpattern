@@ -7,8 +7,8 @@ import java.util.ArrayList;
  */
 public class FBSettingWindow {
 
-    private String title; //窗口标题
-    //定义一个ArrayList来存储所有功能键
+    private String title;
+
     private ArrayList<FunctionButton> functionButtons = new ArrayList<FunctionButton>();
 
     public FBSettingWindow(String title) {
@@ -33,8 +33,8 @@ public class FBSettingWindow {
 
     //显示窗口及功能键
     public void display() {
-        System.out.println("显示窗口：" + this.title);
-        System.out.println("显示功能键：");
+        System.out.println("show window:" + this.title);
+        System.out.println("show function btn:");
         for (Object obj : functionButtons) {
             System.out.println(((FunctionButton)obj).getName());
         }
