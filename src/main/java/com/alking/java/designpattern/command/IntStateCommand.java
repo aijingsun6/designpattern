@@ -14,11 +14,4 @@ public class IntStateCommand implements StateCommand<Integer>{
         stateIn.setResult(state + this.value);
         return  stateIn;
     }
-
-    @Override
-    public State<Integer> undo(State<Integer> stateIn) {
-        Integer state = stateIn.getResult();
-        stateIn.setResult(state - this.value);
-        return  stateIn;
-    }
 }
